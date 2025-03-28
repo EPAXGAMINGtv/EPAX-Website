@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPAXGAMING</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: black;
+        }
+
+        .rainbow-text {
+            cursor: pointer;
+            font-size: 4rem;
+            font-weight: bold;
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+            background-clip: text;
+            -webkit-background-clip: text; 
+            color: transparent;
+            animation: rainbow-shift 8s infinite linear;
+            background-size: 300% 100%; 
+        }
+
+        .mainText {
+            font-size: 2rem;
+            color: cyan;
+            margin-top: 20px;
+            text-shadow: 0 0 10px cyan, 0 0 20px blue, 0 0 30px cyan;
+            position: relative;
+            line-height: 1.6;
+            background-color: rgb(34, 34, 34);
+            background-size: 10px;
+        }
+
+        .mainText a {
+            color: cyan;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 1s ease-in-out;
+        }
+
+        .mainText a:hover {
+            transform: scale(1.5);
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .particles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: rgba(0, 255, 255, 0.8);
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: fall 8s linear infinite;
+        }
+
+        img {
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            margin: 20px auto;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        img:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+
+        @keyframes rainbow-shift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px);
+            }
+            100% {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="rainbow-text">EPAXGAMING</h1>
+    
+    <img src="res/profile.png" alt="Profile">
+    <div class="mainText">
+        <a href="https://discord.com/users/1248374546927714409" target="_blank">
+            👾 <span style="color: violet;">**Join me on Discord!**</span> 👾<br>
+            🚀 <span style="color: lightblue;">**EPAXGAMING**</span> - Passionate Java Dev for Minecraft Plugins & Web Design.<br>
+            🌐 **Languages:** German | English | Java | C# | HTML | CSS | JS<br>
+            🔥 Click here to connect and explore the world of coding & gaming with me!
+        </a>
+    </div>
+
+    <div class="particles"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const particlesContainer = document.querySelector(".particles");
+            for (let i = 0; i < 30; i++) {
+                let particle = document.createElement("div");
+                particle.classList.add("particle");
+                particle.style.left = Math.random() * 100 + "vw";
+                particle.style.animationDuration = (Math.random() * 6 + 5) + "s";
+                particle.style.animationDelay = Math.random() * 5 + "s";
+                particlesContainer.appendChild(particle);
+            }
+        });
+    </script>
+</body>
+</html>
